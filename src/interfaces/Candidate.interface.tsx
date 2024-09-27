@@ -18,5 +18,8 @@ export default interface Candidate {
     readonly html_url: string | null; 
 
     // company
-    readonly company: string | null; 
+    readonly company: string | null;
+    
+    // bio
+    readonly bio: string | null;
 }
