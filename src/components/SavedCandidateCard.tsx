@@ -1,7 +1,12 @@
 import type Candidate from '../interfaces/Candidate.interface.tsx';
 import { useState, useEffect } from "react";
 
-const SavedCandidateCard = () => {
+type SavedCandidateCardProps = {
+    candidateSelection: ((isSelected: boolean) => void);
+}
+
+
+const SavedCandidateCard = ({candidateSelection}: SavedCandidateCardProps) => {
 
     const [savedCandidates, setSavedCandidates] = useState<Candidate[]>([]);
 
@@ -12,16 +17,6 @@ const SavedCandidateCard = () => {
         if (typeof storedCandidates === 'string') {
             parsedCandidates = JSON.parse(storedCandidates);
             console.log(parsedCandidates);
-            // setSavedCandidates([{
-            //     login: "", 
-            //     name: "",
-            //     location: "",
-            //     avatar_url: "",
-            //     email: "",
-            //     html_url: "",
-            //     company: "",
-            //     bio: "",
-            // }]);
         }
         setSavedCandidates(parsedCandidates);
         console.log(savedCandidates);
@@ -44,23 +39,19 @@ const SavedCandidateCard = () => {
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <>
-                        {
-                            savedCandidates.map((person) => {
-                                <>
-                                    <td><img src={`${person.avatar_url}`} /></td>
-                                    <td>{person.name} AKA {person.login}</td>
-                                    <td>{person.location}</td>
-                                    <td>{person.email}</td>
-                                    <td>{person.company}</td>
-                                    <td>{person.bio}</td>
-                                    <td><button>Reject</button></td>
-                                </>
-                            })
-                        }
-                        </>
-                    </tr>
+                    {
+                        savedCandidates.map((person) => (
+                            <tr key={person.login}>
+                                <td style={{textAlign: "center"}}><img src={`${person.avatar_url}`} style={{width: "11vw"}} /></td>
+                                <td>{person.name} AKA {person.login}</td>
+                                <td>{person.location}</td>
+                                <td>{person.email}</td>
+                                <td>{person.company}</td>
+                                <td>{person.bio}</td>
+                                <td style={{textAlign: "center"}}><button onClick={() => candidateSelection(false)}>Reject Me</button></td>
+                            </tr>
+                        ))
+                    }
                 </tbody>
             </table>
         
