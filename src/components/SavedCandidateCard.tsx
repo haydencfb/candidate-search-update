@@ -1,12 +1,12 @@
 import type Candidate from '../interfaces/Candidate.interface.tsx';
+import { FaMinusCircle } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
 type SavedCandidateCardProps = {
-    candidateSelection: ((isSelected: boolean) => void);
-}
+    removeFromStorage?: ((login: string | null) => void) | null;
+};
 
-
-const SavedCandidateCard = ({candidateSelection}: SavedCandidateCardProps) => {
+const SavedCandidateCard = ({}: SavedCandidateCardProps) => {
 
     const [savedCandidates, setSavedCandidates] = useState<Candidate[]>([]);
 
@@ -22,9 +22,16 @@ const SavedCandidateCard = ({candidateSelection}: SavedCandidateCardProps) => {
         console.log(savedCandidates);
     }, []);
 
+    const removeCandidate = (login: string | null) => {
+        if (login) {
+            const updateCandidates = savedCandidates.filter(candidate => candidate.login !== login);
+            setSavedCandidates(updateCandidates);
+            localStorage.setItem('selectedCandidate', JSON.stringify(updateCandidates));
+        }
+    };
+
     return (
         <>
-
             <table className="table">
                 <thead>
                     <tr>
@@ -48,7 +55,11 @@ const SavedCandidateCard = ({candidateSelection}: SavedCandidateCardProps) => {
                                 <td>{person.email}</td>
                                 <td>{person.company}</td>
                                 <td>{person.bio}</td>
-                                <td style={{textAlign: "center"}}><button onClick={() => candidateSelection(false)}>Reject Me</button></td>
+                                <td style={{textAlign: "center"}}>
+                                    <button style={{width: "11vw", height: "auto"}} onClick={() => removeCandidate(person.login)}>
+                                        <FaMinusCircle />
+                                    </button>
+                                </td>
                             </tr>
                         ))
                     }

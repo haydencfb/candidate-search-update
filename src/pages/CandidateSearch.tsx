@@ -30,7 +30,7 @@ const CandidateSearch = () => {
   const findOneCandidate = async (username: string) => {
     const data: Candidate = await searchGithubUser(username);
     setCurrentCandidate(data);
-    console.log(data);
+    console.log('Individual Data:', data);
   }
 
   const candidateSelection = async (isSelected: boolean) => {
@@ -55,17 +55,26 @@ const CandidateSearch = () => {
 
   useEffect(() => {
       findCandidates();
-}, []);
+  }, []);
 
-  return (
-    <>
+  if (currentIndex !== searchResult.length) {
+    return (
+      <>
+          <h1>CandidateSearch</h1>
+          <CandidateCard 
+            currentCandidate={currentCandidate}
+            candidateSelection={candidateSelection}
+          />
+      </>
+    );
+  } else {
+    return (
+      <>
         <h1>CandidateSearch</h1>
-        <CandidateCard 
-          currentCandidate={currentCandidate}
-          candidateSelection={candidateSelection}
-        />
-    </>
-  );
+        <h2>No More Eligable Candidates!</h2>
+      </>
+    );
+  }
 };
 
 export default CandidateSearch;
