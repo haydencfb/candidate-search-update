@@ -11,7 +11,7 @@ const CandidateCard = ({currentCandidate, candidateSelection}: CandidateCardProp
     return (
         <>
             <section style={{backgroundColor: "black", borderRadius: "5px"}}>
-                <figure>
+                <figure style={{display: "flex", justifyContent: "center"}}>
                     <img src={`${currentCandidate.avatar_url}`} style={{height: "200px", width: "auto"}} />
                 </figure>
                 <article style={{textAlign: "center"}}>

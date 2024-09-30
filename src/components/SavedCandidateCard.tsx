@@ -49,7 +49,9 @@ const SavedCandidateCard = ({}: SavedCandidateCardProps) => {
                     {
                         savedCandidates.map((person) => (
                             <tr key={person.login}>
-                                <td style={{textAlign: "center"}}><img src={`${person.avatar_url}`} style={{width: "11vw"}} /></td>
+                                <td style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+                                    <img src={`${person.avatar_url}`} style={{width: "11vw"}} />
+                                </td>
                                 <td>{person.name} AKA {person.login}</td>
                                 <td>{person.location}</td>
                                 <td>{person.email}</td>
