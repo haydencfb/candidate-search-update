@@ -24,6 +24,10 @@ const Nav = () => {
             Saved Candidates
           </NavLink>
         </h3>
+
+        <h3 className='nav-item'>
+          <NavLink to="/" style={{marginBottom: "25px"}} onClick={() => localStorage.clear()}>Clear localStorage</NavLink>
+        </h3>
     </nav>
 
   )
