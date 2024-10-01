@@ -10,7 +10,7 @@ type CandidateCardProps = {
 const CandidateCard = ({currentCandidate, candidateSelection}: CandidateCardProps) => {
     return (
         <>
-            <section style={{backgroundColor: "black", borderRadius: "5px"}}>
+            <section style={{backgroundColor: "black", borderRadius: "5px", padding: "15px"}}>
                 <figure style={{display: "flex", justifyContent: "center"}}>
                     <img src={`${currentCandidate.avatar_url}`} style={{height: "200px", width: "auto"}} />
                 </figure>

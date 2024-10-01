@@ -50,14 +50,30 @@ const SavedCandidateCard = ({}: SavedCandidateCardProps) => {
                         savedCandidates.map((person) => (
                             <tr key={person.login}>
                                 <td style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-                                    <img src={`${person.avatar_url}`} style={{width: "11vw"}} />
+                                    <img src={`${person.avatar_url}`} className="tableItem" />
                                 </td>
-                                <td>{person.name} AKA {person.login}</td>
-                                <td>{person.location}</td>
-                                <td>{person.email}</td>
-                                <td>{person.company}</td>
-                                <td>{person.bio}</td>
-                                <td style={{textAlign: "center"}}>
+
+                                <td className="tableItem">
+                                    {person.name} AKA {person.login}
+                                </td>
+
+                                <td className="tableItem">
+                                    {person.location}
+                                </td>
+
+                                <td className="tableItem">
+                                    {person.email}
+                                </td>
+
+                                <td className="tableItem">
+                                    {person.company}
+                                </td>
+
+                                <td className="tableItem">
+                                    {person.bio}
+                                </td>
+
+                                <td className="tableItem">
                                     <button style={{width: "11vw", height: "auto"}} onClick={() => removeCandidate(person.login)}>
                                         <FaMinusCircle />
                                     </button>

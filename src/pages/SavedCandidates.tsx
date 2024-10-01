@@ -7,6 +7,7 @@ const SavedCandidates = () => {
   return (
     <>
       <h1>Potential Candidates</h1>
+      <button style={{marginBottom: "25px"}} onClick={() => localStorage.clear()}>Clear localStorage</button>
         {storedCandidates !== null && storedCandidates !== "[]" ? (
           <SavedCandidateCard />
         ) : (

@@ -24,7 +24,6 @@ const Nav = () => {
             Saved Candidates
           </NavLink>
         </h3>
-
     </nav>
 
   )

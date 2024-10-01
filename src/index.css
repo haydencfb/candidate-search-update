@@ -117,3 +117,10 @@ tbody tr:nth-child(odd) {
   width: 80vw;
   table-layout: fixed;
 }
+
+.tableItem {
+  width: 11vw;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
