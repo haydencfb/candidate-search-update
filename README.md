@@ -41,4 +41,4 @@
   If you have any questions, please feel free to reach out to me at haydenfitzbrintle@gmail.com or visit my GitHub profile at [https://github.com/haydencfb]
 
   ## Link
-  Deployed Link: 
+  Deployed Link: https://candidate-search-update-2.onrender.com/
