@@ -18,6 +18,7 @@
   - [Tests](#tests)
   - [Questions](#questions)
   - [Link](#link)
+  - [Screenshots](#screenshots)
 
   ## Installation
   Installation is not required, rather consumers may visit the deployed link.
@@ -42,3 +43,8 @@
 
   ## Link
   Deployed Link: https://candidate-search-update-2.onrender.com/
+
+  ## Screenshots
+  ![Candidate1](https://github.com/user-attachments/assets/b2bf9059-9ce7-4066-9974-5615f2754997)
+  ![Candidate2](https://github.com/user-attachments/assets/3a34b26f-c8b8-441c-bc78-170924bd8ed1)
+
